@@ -2,29 +2,29 @@
 
 Personally Identifiable Information (PII) is any data that could potentially identify a specific individual. Here are some common examples:
 
-# Name: Full name, first name, last name, maiden name.
+Name: Full name, first name, last name, maiden name.
 
-# Address: Home address, email address.
+Address: Home address, email address.
 
-# Phone Numbers: Home phone number, mobile phone number.
+Phone Numbers: Home phone number, mobile phone number.
 
-# Social Security Number (SSN): Unique identifier used for social security and tax purposes.
+Social Security Number (SSN): Unique identifier used for social security and tax purposes.
 
-# Driver's License Number: Issued by the government for driving privileges.
+Driver's License Number: Issued by the government for driving privileges.
 
-# Passport Number: Identification number on a passport.
+Passport Number: Identification number on a passport.
 
-# Financial Information: Credit card numbers, bank account numbers, financial records.
+Financial Information: Credit card numbers, bank account numbers, financial records.
 
-# Biometric Data: Fingerprints, facial recognition data, iris scans.
+Biometric Data: Fingerprints, facial recognition data, iris scans.
 
-# Medical Information: Health records, health insurance details.
+Medical Information: Health records, health insurance details.
 
-# Date of Birth: Exact date of birth can uniquely identify an individual.
+Date of Birth: Exact date of birth can uniquely identify an individual.
 
-# Employment Information: Employee ID, employment history, professional licenses.
+Employment Information: Employee ID, employment history, professional licenses.
 
-# Online Identifiers: IP addresses, login credentials, social media handles, cookie data. 2. How to Implement a Log Filter that Will Obfuscate PII Fields
+Online Identifiers: IP addresses, login credentials, social media handles, cookie data. 2. How to Implement a Log Filter that Will Obfuscate PII Fields
 
 To protect PII in logs, it is essential to implement a log filter that obfuscates or masks sensitive information. Here's a step-by-step guide on how to do this:
 
@@ -56,21 +56,21 @@ def filter(self, record):
 record.msg = self.obfuscate_pii(record.msg)
 return True
 
-# def obfuscate_pii(self, message):
+def obfuscate_pii(self, message):
 
-# # Example regex patterns for PII
+# Example regex patterns for PII
 
-# email*pattern = re.compile(r'[a-zA-Z0-9*.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
+email*pattern = re.compile(r'[a-zA-Z0-9*.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
 
-# phone_pattern = re.compile(r'\b\d{3}[-.\s]??\d{2}[-.\s]??\d{4}\b')
+phone_pattern = re.compile(r'\b\d{3}[-.\s]??\d{2}[-.\s]??\d{4}\b')
 
         # Replace matches with obfuscated versions
 
-# message = email_pattern.sub('[EMAIL]', message)
+message = email_pattern.sub('[EMAIL]', message)
 
-# message = phone_pattern.sub('[PHONE]', message)
+message = phone_pattern.sub('[PHONE]', message)
 
-# return message
+return message
 
 logger = logging.getLogger('my_logger')
 logger.addFilter(PiiFilter())
