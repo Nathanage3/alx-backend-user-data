@@ -141,7 +141,3 @@ db_name = os.getenv('DB_NAME')
 
 conn = get_db_connection()
 print("Database connection established")
-
-In this example, psycopg2 is used to connect to a PostgreSQL database, but the approach is similar for other databases.
-
-By using environment variables, you keep sensitive information out of your source code, enhancing the security of your application.
