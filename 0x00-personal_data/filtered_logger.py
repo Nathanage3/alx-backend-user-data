@@ -2,10 +2,17 @@
 """
 Module for 'filtered_logger'
 """
-
+import bcrypt
+from mysql.connector import connection
 import logging
-import re
+import mysql.connector
 from typing import List
+import os
+import re
+
+
+# Define the PII_FIELDS constant
+PII_FIELDS = ("name", "email", "ssn", "phone", "address")
 
 def filter_datum(
                 fields: List[str], 
@@ -69,3 +76,59 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(
             self.fields, self.REDACTION, original_message, self.SEPARATOR
         )
+
+
+def get_db() -> connection.MySQLConnection:
+    """
+    Connects to the database using credentials stored in environment variables
+    and returns the MySQLConnection object.
+    """
+    db_user = os.getenv('PERSONAL_DATA_DB_USERNAME', 'root')
+    db_password = os.getenv('PERSONAL_DATA_DB_PASSWORD', '')
+    db_host = os.getenv('PERSONAL_DATA_DB_HOST', 'localhost')
+    db_name = os.getenv('PERSONAL_DATA_DB_NAME')
+
+    conn = mysql.connector.connect(
+        user=db_user,
+        password=db_password,
+        host=db_host,
+        database=db_name
+    )
+    return conn
+
+def get_logger() -> logging.Logger:
+    """
+    Creates a logger named "user_data" that logs up to INFO level
+    with a StreamHandler using RedactingFormatter.
+    """
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+
+    # Create a StreamHandler with RedactingFormatter
+    stream_handler = logging.StreamHandler()
+    formatter = RedactingFormatter(fields=PII_FIELDS)
+    stream_handler.setFormatter(formatter)
+
+    logger.addHandler(stream_handler)
+
+    return logger
+
+def main():
+    """
+    Obtain a database connection, retrieve all rows from the users table,
+    and log each row with sensitive information obfuscated.
+    """
+    db_connection = get_db()
+    cursor = db_connection.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users")
+
+    logger = get_logger()
+
+    for row in cursor:
+        message = "; ".join([f"{key}={value}" for key, value in row.items()])
+        logger.info(message)
+
+    cursor.close()
+    db_connection.close()
+    
