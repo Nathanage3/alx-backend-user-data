@@ -46,8 +46,6 @@ You can use logging libraries like log4j for Java, logging for Python, or winsto
 
 Example in Python using the logging module:
 
-python
-Copy code
 import logging
 import re
 
@@ -63,8 +61,6 @@ def obfuscate_pii(self, message):
 email*pattern = re.compile(r'[a-zA-Z0-9*.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
 
 phone_pattern = re.compile(r'\b\d{3}[-.\s]??\d{2}[-.\s]??\d{4}\b')
-
-        # Replace matches with obfuscated versions
 
 message = email_pattern.sub('[EMAIL]', message)
 
@@ -84,12 +80,10 @@ When dealing with passwords, it is crucial to use secure hashing algorithms and 
 
 # a. Encrypt a Password
 
-python
-Copy code
 import bcrypt
 
-def encrypt_password(password): # Generate a salt
-salt = bcrypt.gensalt() # Hash the password
+def encrypt_password(password):  
+salt = bcrypt.gensalt()
 hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
 return hashed
 
@@ -98,17 +92,17 @@ return hashed
 password = 'mysecretpassword'
 hashed_password = encrypt_password(password)
 print(hashed_password)
-b. Check Password Validity
-python
-Copy code
-def check_password(password, hashed): # Check if the provided password matches the hashed password
+
+# b. Check Password Validity
+
+def check_password(password, hashed):
 return bcrypt.checkpw(password.encode('utf-8'), hashed)
 
 # Example usage
 
 password_to_check = 'mysecretpassword'
 is_valid = check_password(password_to_check, hashed_password)
-print(is_valid) # Should print True 4. How to Authenticate to a Database Using Environment Variables
+print(is_valid)
 Using environment variables to store database credentials is a secure practice to avoid hardcoding sensitive information in your source code. Here’s how you can do it:
 
 # a. Set Environment Variables
@@ -117,8 +111,6 @@ Set environment variables in your operating system or in a .env file if using a 
 
 In a UNIX-based system, you can set variables in your shell:
 
-sh
-Copy code
 export DB_HOST='localhost'
 export DB_USER='myuser'
 export DB_PASSWORD='mypassword'
@@ -128,8 +120,6 @@ export DB_NAME='mydatabase'
 
 Here’s an example in Python using the os module to access these environment variables:
 
-python
-Copy code
 import os
 import psycopg2
 
@@ -139,7 +129,6 @@ db_user = os.getenv('DB_USER')
 db_password = os.getenv('DB_PASSWORD')
 db_name = os.getenv('DB_NAME')
 
-    # Establish a connection to the database
     connection = psycopg2.connect(
         host=db_host,
         user=db_user,
@@ -152,6 +141,7 @@ db_name = os.getenv('DB_NAME')
 
 conn = get_db_connection()
 print("Database connection established")
+
 In this example, psycopg2 is used to connect to a PostgreSQL database, but the approach is similar for other databases.
 
 By using environment variables, you keep sensitive information out of your source code, enhancing the security of your application.
