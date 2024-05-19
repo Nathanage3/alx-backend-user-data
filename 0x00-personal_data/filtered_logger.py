@@ -134,5 +134,4 @@ def main():
         logger.info(message)
     cursor.close()
     db_connection.close()
-    
-    
+
