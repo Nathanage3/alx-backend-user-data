@@ -135,3 +135,4 @@ def main():
     cursor.close()
     db_connection.close()
 
+
