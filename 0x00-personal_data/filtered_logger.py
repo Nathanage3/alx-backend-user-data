@@ -16,7 +16,7 @@ PII_FIELDS = ("name", "email", "ssn", "phone", "address")
 
 
 def filter_datum(
-                fields: List[str], 
+                fields: List[str],
                 redaction: str,
                 message: str,
                 separator: str
@@ -134,4 +134,5 @@ def main():
         logger.info(message)
     cursor.close()
     db_connection.close()
+    
     
