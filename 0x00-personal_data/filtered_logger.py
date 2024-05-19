@@ -14,10 +14,11 @@ import re
 # Define the PII_FIELDS constant
 PII_FIELDS = ("name", "email", "ssn", "phone", "address")
 
+
 def filter_datum(
                 fields: List[str], 
                 redaction: str,
-                message: str, 
+                message: str,
                 separator: str
                 ) -> str:
     """
@@ -38,6 +39,7 @@ def filter_datum(
         lambda m: m.group(0).split('=')[0] + '=' + redaction,
         message
     )
+
 
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class """
@@ -96,6 +98,7 @@ def get_db() -> connection.MySQLConnection:
     )
     return conn
 
+
 def get_logger() -> logging.Logger:
     """
     Creates a logger named "user_data" that logs up to INFO level
@@ -114,6 +117,7 @@ def get_logger() -> logging.Logger:
 
     return logger
 
+
 def main():
     """
     Obtain a database connection, retrieve all rows from the users table,
@@ -128,7 +132,6 @@ def main():
     for row in cursor:
         message = "; ".join([f"{key}={value}" for key, value in row.items()])
         logger.info(message)
-
     cursor.close()
     db_connection.close()
     
