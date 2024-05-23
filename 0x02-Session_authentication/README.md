@@ -65,8 +65,10 @@ Extract the Header: Obtain the Cookie header from the HTTP request.
 
 css
 
-<span style="font-size: 14px; font-weight: 400;">Cookie: </span>name=value; anotherName=anotherValue
-<span style="font-size: 14px; font-weight: 400;">Split the String: </span>Split the header string by semicolons (;) to separate individual cookies.
+<span style="font-size: 14px; font-weight: 400;">Cookie: </span>
+name=value; anotherName=anotherValue
+<span style="font-size: 14px; font-weight: 400;">Split the String: </span>
+Split the header string by semicolons (;) to separate individual cookies.
 
 
 cookiesString = "name=value; anotherName=anotherValue"
