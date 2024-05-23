@@ -1,62 +1,62 @@
 # What Authentication Means
 Authentication is the process of verifying the identity of a user or a system. It is a critical aspect of security in any system or application. The purpose of authentication is to ensure that users are who they claim to be. This process typically involves the following elements:
 
-<span style="font-size: 14px; font-weight: 200;">Credentials: </span>Information provided by the user to verify their identity. Common credentials include:
+<span style="font-size: 14px; font-weight: 400;">Credentials: </span>Information provided by the user to verify their identity. Common credentials include:
 
-<span style="font-size: 14px; font-weight: 200;">Username/Password: </span>The most common form of credentials.
-<span style="font-size: 14px; font-weight: 200;">Biometric Data: </span>Fingerprints, facial recognition, etc.
-<span style="font-size: 14px; font-weight: 200;">Tokens: </span>Physical or digital objects that the user possesses.
-<span style="font-size: 14px; font-weight: 200;">Certificates: </span>Digital certificates issued by a trusted authority.
-<span style="font-size: 14px; font-weight: 200;">Authentication Mechanisms: </span>Methods used to check the provided credentials against the stored information. Examples include:
+<span style="font-size: 14px; font-weight: 400;">Username/Password: </span>The most common form of credentials.
+<span style="font-size: 14px; font-weight: 400;">Biometric Data: </span>Fingerprints, facial recognition, etc.
+<span style="font-size: 14px; font-weight: 400;">Tokens: </span>Physical or digital objects that the user possesses.
+<span style="font-size: 14px; font-weight: 400;">Certificates: </span>Digital certificates issued by a trusted authority.
+<span style="font-size: 14px; font-weight: 400;">Authentication Mechanisms: </span>Methods used to check the provided credentials against the stored information. Examples include:
 
-<span style="font-size: 14px; font-weight: 200;">Password Verification: </span>Matching the user-provided password with the stored hash.
-<span style="font-size: 14px; font-weight: 200;">Multi-Factor Authentication (MFA):</span> Combining two or more authentication factors, such as something you know (password), something you have (token), and something you are (biometric).
+<span style="font-size: 14px; font-weight: 400;">Password Verification: </span>Matching the user-provided password with the stored hash.
+<span style="font-size: 14px; font-weight: 400;">Multi-Factor Authentication (MFA):</span> Combining two or more authentication factors, such as something you know (password), something you have (token), and something you are (biometric).
 
 # What Session Authentication Means
 Session Authentication involves maintaining an authenticated state for a user across multiple interactions with a system. Instead of asking the user to re-authenticate with every request, session authentication allows the system to remember the user’s authenticated state.
 
-<span style="font-size: 14px; font-weight: 200;">Session Creation: </span> Upon successful authentication, a session is created. A unique session identifier (session ID) is generated and associated with the user’s session.
+<span style="font-size: 14px; font-weight: 400;">Session Creation: </span> Upon successful authentication, a session is created. A unique session identifier (session ID) is generated and associated with the user’s session.
 
-<span style="font-size: 14px; font-weight: 200;">Session Storage: </span>The session ID is stored on the server side, typically in a session store (in-memory store, database, etc.). The server also keeps track of the user’s data and state.
+<span style="font-size: 14px; font-weight: 400;">Session Storage: </span>The session ID is stored on the server side, typically in a session store (in-memory store, database, etc.). The server also keeps track of the user’s data and state.
 
-<span style="font-size: 14px; font-weight: 200;">Session Maintenance: </span>The session ID is sent to the client, usually via cookies, and is included in subsequent requests to the server. The server uses this ID to retrieve the session information and maintain the user’s authenticated state.
+<span style="font-size: 14px; font-weight: 400;">Session Maintenance: </span>The session ID is sent to the client, usually via cookies, and is included in subsequent requests to the server. The server uses this ID to retrieve the session information and maintain the user’s authenticated state.
 
-<span style="font-size: 14px; font-weight: 200;">Session Expiry: </span>Sessions have a limited lifespan for security reasons. They can expire after a set period of inactivity or after a predefined duration.
+<span style="font-size: 14px; font-weight: 400;">Session Expiry: </span>Sessions have a limited lifespan for security reasons. They can expire after a set period of inactivity or after a predefined duration.
 
 # What Cookies Are
 Cookies are small pieces of data stored on the client’s browser by the server. They are used to remember information about the user between HTTP requests. Cookies are a fundamental part of web sessions and user tracking.
 
 # Types of Cookies:
 
-<span style="font-size: 14px; font-weight: 200;">Session Cookies: </span>Temporary cookies that are deleted when the user closes the browser.
-<span style="font-size: 14px; font-weight: 200;">Persistent Cookies: </span>Stored on the user’s device until they expire or are deleted by the user.
-<span style="font-size: 14px; font-weight: 200;">Secure Cookies: </span> Only transmitted over HTTPS to ensure they are encrypted during transmission.
-<span style="font-size: 14px; font-weight: 200;">HttpOnly Cookies: </span> Accessible only by the server, not by JavaScript running in the browser, adding an extra layer of security.
+<span style="font-size: 14px; font-weight: 400;">Session Cookies: </span>Temporary cookies that are deleted when the user closes the browser.
+<span style="font-size: 14px; font-weight: 400;">Persistent Cookies: </span>Stored on the user’s device until they expire or are deleted by the user.
+<span style="font-size: 14px; font-weight: 400;">Secure Cookies: </span> Only transmitted over HTTPS to ensure they are encrypted during transmission.
+<span style="font-size: 14px; font-weight: 400;">HttpOnly Cookies: </span> Accessible only by the server, not by JavaScript running in the browser, adding an extra layer of security.
 Cookie Properties:
-<span style="font-size: 14px; font-weight: 200;"></span>
-<span style="font-size: 14px; font-weight: 200;">Name: </span> The name of the cookie.
-<span style="font-size: 14px; font-weight: 200;">Value: </span>The data stored in the cookie.
-<span style="font-size: 14px; font-weight: 200;">Domain: </span>The domain for which the cookie is valid.
-<span style="font-size: 14px; font-weight: 200;">Path: </span>The specific path within the domain where the cookie is valid.
-<span style="font-size: 14px; font-weight: 200;">Expiry: </span>The date and time when the cookie will expire.
-<span style="font-size: 14px; font-weight: 200;">Secure: </span>Indicates that the cookie should only be sent over secure (HTTPS) connections.
-<span style="font-size: 14px; font-weight: 200;">HttpOnly: </span>Indicates that the cookie is not accessible via JavaScript.
+<span style="font-size: 14px; font-weight: 400;"></span>
+<span style="font-size: 14px; font-weight: 400;">Name: </span> The name of the cookie.
+<span style="font-size: 14px; font-weight: 400;">Value: </span>The data stored in the cookie.
+<span style="font-size: 14px; font-weight: 400;">Domain: </span>The domain for which the cookie is valid.
+<span style="font-size: 14px; font-weight: 400;">Path: </span>The specific path within the domain where the cookie is valid.
+<span style="font-size: 14px; font-weight: 400;">Expiry: </span>The date and time when the cookie will expire.
+<span style="font-size: 14px; font-weight: 400;">Secure: </span>Indicates that the cookie should only be sent over secure (HTTPS) connections.
+<span style="font-size: 14px; font-weight: 400;">HttpOnly: </span>Indicates that the cookie is not accessible via JavaScript.
 How to Send Cookies
 Cookies can be sent from the server to the client or from the client to the server:
 
 # Server to Client:
 
-<span style="font-size: 14px; font-weight: 200;">Set-Cookie Header: </span> When the server wants to set a cookie, it includes the Set-Cookie header in the HTTP response.
+<span style="font-size: 14px; font-weight: 400;">Set-Cookie Header: </span> When the server wants to set a cookie, it includes the Set-Cookie header in the HTTP response.
 mathematica
 
-<span style="font-size: 14px; font-weight: 200;">Set-Cookie: </span>sessionId=abc123; Path=/; HttpOnly; Secure
+<span style="font-size: 14px; font-weight: 400;">Set-Cookie: </span>sessionId=abc123; Path=/; HttpOnly; Secure
 
 # Client to Server:
 
-<span style="font-size: 14px; font-weight: 200;">Cookie Header: </span>On subsequent requests, the client includes the cookie in the HTTP request using the Cookie header.
+<span style="font-size: 14px; font-weight: 400;">Cookie Header: </span>On subsequent requests, the client includes the cookie in the HTTP request using the Cookie header.
 makefile
 
-<span style="font-size: 14px; font-weight: 200;">Cookie: </span>sessionId=abc123
+<span style="font-size: 14px; font-weight: 400;">Cookie: </span>sessionId=abc123
 
 # How to Parse Cookies
 Parsing cookies involves extracting cookie data from the Cookie header in an HTTP request. Here’s how it can be done:
@@ -65,8 +65,8 @@ Extract the Header: Obtain the Cookie header from the HTTP request.
 
 css
 
-<span style="font-size: 14px; font-weight: 200;">Cookie: </span>name=value; anotherName=anotherValue
-<span style="font-size: 14px; font-weight: 200;">Split the String: </span>Split the header string by semicolons (;) to separate individual cookies.
+<span style="font-size: 14px; font-weight: 400;">Cookie: </span>name=value; anotherName=anotherValue
+<span style="font-size: 14px; font-weight: 400;">Split the String: </span>Split the header string by semicolons (;) to separate individual cookies.
 
 
 cookiesString = "name=value; anotherName=anotherValue"
