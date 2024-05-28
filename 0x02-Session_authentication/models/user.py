@@ -2,6 +2,7 @@
 """User module.
 """
 import hashlib
+import bcrypt
 from models.base import Base
 
 
@@ -34,7 +35,8 @@ class User(Base):
         if pwd is None or type(pwd) is not str:
             self._password = None
         else:
-            self._password = hashlib.sha256(pwd.encode()).hexdigest().lower()
+            hashed = bcrypt.hashpw(pwd.encode('utf-8'), bcrpt.gensalt())
+            self.__password = hashed.decode('utf-8')
 
     def is_valid_password(self, pwd: str) -> bool:
         """Validate a password.
@@ -43,8 +45,8 @@ class User(Base):
             return False
         if self.password is None:
             return False
-        pwd_e = pwd.encode()
-        return hashlib.sha256(pwd_e).hexdigest().lower() == self.password
+        
+        return bcrypt.checkpw(pwd.encode('utf-8'), self.password.encode('utf-8'))
 
     def display_name(self) -> str:
         """Display User name based on email/first_name/last_name.
