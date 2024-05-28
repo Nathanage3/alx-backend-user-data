@@ -74,6 +74,6 @@ def authenticate_user():
 
 
 if __name__ == "__main__":
-    host = getenv("API_HOST", "0.0.0.0")
-    port = getenv("API_PORT", "5000")
+    host = getenv("API_HOST", "127.0.0.1")
+    port = getenv("API_PORT", "3456")
     app.run(host=host, port=port)

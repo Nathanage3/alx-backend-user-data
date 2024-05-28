@@ -36,7 +36,7 @@ class User(Base):
             self._password = None
         else:
             hashed = bcrypt.hashpw(pwd.encode('utf-8'), bcrypt.gensalt())
-            self.__password = hashed.decode('utf-8')
+            self._password = hashed.decode('utf-8')
 
     def is_valid_password(self, pwd: str) -> bool:
         """Validate a password.
