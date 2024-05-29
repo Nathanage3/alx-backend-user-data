@@ -8,6 +8,7 @@ from uuid import uuid4
 
 Base = declarative_base()
 
+
 class User(Base):
     """Representation of user"""
     __tablename__ = 'users'
