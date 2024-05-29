@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""User module"""
+"""User module
+"""
 
 import sqlalchemy
 from sqlalchemy import Column, String, DateTime, Integer
