@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
-import jsonify
-from flask import Flask
+"""A simple flask app
+"""
+from flask import Flask, jsonify
 
 
 app = Flask(__name__)
