@@ -7,10 +7,13 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/", Methods="GET", strict_slashes=False)
-def hello():
-  message = "Bienvenue"
-  return jsonify(message), 200
+@app.route("/", methods=["GET"], strict_slashes=False)
+def index() ->str:
+  """Get /
+  Return:
+    - The home page's payload.
+  """
+  return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
