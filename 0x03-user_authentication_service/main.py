@@ -2,21 +2,26 @@
 """
 Main file
 """
+from db import DB
 from auth import Auth
+from user import User
 
-email = 'me@me'
-password = 'mySecuredPwd'
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 
-auth = Auth()
+my_db = DB()
+AUTH = Auth()
 
-try:
-    user = auth.register_user(email, password)
-    print("successfully created a new user!")
-except ValueError as err:
-    print("could not create a new user: {}".format(err))
+email = "test@gmail.com"
+user = my_db.add_user(email, "PwdHashed")
+#print(user.email)
+session_id = AUTH.create_session(email)
+user.session_id = session_id
+my_db._session.commit()
 
-try:
-    user = auth.register_user(email, password)
-    print("successfully created a new user!")
-except ValueError as err:
-    print("could not create a new user: {}".format(err))       
+found_user = AUTH.get_user_from_session_id(session_id)
+if found_user:
+  print(found_user.id)
+else:
+  print("Not Found")
+  
