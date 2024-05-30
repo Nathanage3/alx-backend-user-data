@@ -79,12 +79,11 @@ class Auth:
         return user
   
   def destroy_session(user_id: int) -> None:
-    """Destroy the user id by session_id
+    """Destroy the session associated with a given user.
     """
-    try:
-      self._db.update_user(user_id, session_id=None)
-    except NoResultFound:
-      pass
+    if user_id is None:
+      return None
+    self._db.update_user(user_id, session_id=None)
   
 
 
